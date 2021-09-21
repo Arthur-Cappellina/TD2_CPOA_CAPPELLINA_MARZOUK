@@ -16,7 +16,7 @@ public class Etudiant extends Groupe{
         return 0;
     }
 
-    public int calculMoyenneG(String m){
+    public int calculMoyenneG(){
         return 0;
     }
 }
