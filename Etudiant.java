@@ -1,4 +1,22 @@
 package TD2_CPOA_CAPPELLINA_MARZOUK;
 
-public class Etudiant {
+import java.util.*;
+
+public class Etudiant extends Groupe{
+
+    public Map<String, ArrayList<Float>> notes;
+
+    public Etudiant(){}
+
+    public void ajouterNote(String m){
+
+    }
+
+    public int calculMoyenne(String m){
+        return 0;
+    }
+
+    public int calculMoyenneG(String m){
+        return 0;
+    }
 }
