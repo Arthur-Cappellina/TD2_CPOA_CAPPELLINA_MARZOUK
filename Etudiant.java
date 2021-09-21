@@ -4,11 +4,37 @@ import java.util.*;
 
 public class Etudiant extends Groupe{
 
-    public Map<String, ArrayList<Float>> notes;
+    private Map<String, ArrayList<Float>> notes;
+    private Identite id;
+    private Formation fo;
 
-    public Etudiant(){}
+    public Etudiant(Identite identite, Formation formation){
+        this.id = identite;
+        this.fo = formation;
+    }
 
-    public void ajouterNote(String m, Float note){
+    public Map<String, ArrayList<Float>> getNotes(){
+        return this.notes;
+    }
+
+    public Identite getId(){
+        return this.id;
+    }
+
+    public Formation getFo(){
+        return this.fo;
+    }
+
+    @Override
+    public String toString() {
+        return "Etudiant{" +
+                "notes=" + notes +
+                ", id=" + id +
+                ", fo=" + fo +
+                '}';
+    }
+
+    public void ajouterNote(String m, List<Float> note){
 
     }
 
@@ -16,7 +42,7 @@ public class Etudiant extends Groupe{
         return 0;
     }
 
-    public int calculMoyenneG(){
+    public int calculMoyenneMatiere(){
         return 0;
     }
 }
