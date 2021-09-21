@@ -8,7 +8,7 @@ public class Etudiant extends Groupe{
 
     public Etudiant(){}
 
-    public void ajouterNote(String m){
+    public void ajouterNote(String m, Float note){
 
     }
 
