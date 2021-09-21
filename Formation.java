@@ -26,4 +26,8 @@ public class Formation {
         if(coefficientsMatieres.containsKey(coefficient))
             coefficientsMatieres.remove(matiere);
     }
+
+    public float getCoeff(String matiere){
+        return coefficientsMatieres.containsKey(matiere) ? coefficientsMatieres.get(matiere) : -1;
+    }
 }
