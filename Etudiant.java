@@ -2,7 +2,7 @@ package TD2_CPOA_CAPPELLINA_MARZOUK;
 
 import java.util.*;
 
-public class Etudiant extends Groupe {
+public class Etudiant {
 
     private Map<String, ArrayList<Float>> notes;
     private Identite id;
