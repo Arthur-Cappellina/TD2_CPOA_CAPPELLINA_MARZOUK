@@ -9,7 +9,7 @@ public class Etudiant extends Groupe{
     private Formation fo;
 
     public Etudiant(Identite identite, Formation formation){
-        this.notes = new HashMap<String, ArrayList<Float>>();
+        this.notes = new HashMap<>();
         this.id = identite;
         this.fo = formation;
     }
@@ -51,7 +51,12 @@ public class Etudiant extends Groupe{
         return sum/getNotes().get(m).size() ;
     }
 
-    public int calculMoyenneMatiere(){
-        return 0;
+    public float calculMoyenneMatiere(){
+        float sum = 0;
+        Set<String> ks = this.getNotes().keySet();
+        for (String m:ks){
+            sum += this.calculMoyenne(m);
+        }
+        return sum;
     }
 }
