@@ -38,7 +38,7 @@ public class Groupe {
         return somme/etudiants.size();
     }
 
-    public float calculerMoyenneGeneraleGroupe(){
+        public float calculerMoyenneGeneraleGroupe(){
         if(etudiants.size() <= 0) return 0;
         float somme = 0;
         for(Etudiant e : etudiants){

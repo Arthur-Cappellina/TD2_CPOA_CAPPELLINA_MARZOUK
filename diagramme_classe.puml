@@ -4,48 +4,50 @@
 
 class Identite{
 
-    - nip : String;
-    - nom : String;
-    - prenom : String;
-    + getNip() : String;
-    + getNom() : String;
-    + getPrenom() : String;
+    - nip : String
+    - nom : String
+    - prenom : String
+    + getNip() : String
+    + getNom() : String
+    + getPrenom() : String
 
 }
 
 class Etudiant{
-    - notes : Map<String, ArrayList<Float>>;
-
-    + ajouterNote(String m, float note);
-    + calculMoyenne(String m) : float;
-    + calculMoyenneG() : float;
-
-
+    - notes : Map<String, ArrayList<Float>>
+    + Etudiant(Indentite, Formation)
+    + ajouterNote(String m, float note)
+    + calculMoyenneMatiere(String m) : float
+    + calculMoyenneGeneral() : float
+    + getNotes() : Map<String, ArrayList<Float>>
+    + getIdentite() : Identite
+    + getFormation() : Formation
+    + compareTo() : int
 }
 
 class Formation{
     - identifiant : int
     - coefficientsMatieres : Map<String, Float>>
 
-    + ajouterMatiere(String m, float coeff);
-    + supprimerMatiere(String m);
-
+    + ajouterMatiere(String m, float coeff)
+    + supprimerMatiere(String m)
+    + getCoeff(String m) : int
 }
 
 class Groupe{
-
-    + ajouterEtudiant(Etudiant e);
-    + supprimerEtudiant(Etudiant e);
-    + calculMoyenne(String m) : int;
-    + calculMoyenneG() : int;
-    + triParMerite();
-    + triAlpha();
+    + Groupe()
+    + ajouterEtudiant(Etudiant etudiant)
+    + supprimerEtudiant(Etudiant etudiant)
+    + calculerMoyenneMatiereGroupe(String matiere) : float
+    + calculerMoyenneGeneraleGroupe() : float
+    + triParMerite() : void
+    + triAlpha() : void
 
 }
 
 
 Groupe --> Etudiant : - etudiants
-Etudiant --> Identite : - identite
-Etudiant --> Formation : - formationEtudiant
+Etudiant --> Identite : - id
+Etudiant --> Formation : - fo
 Groupe --> Formation : - formation
 @enduml

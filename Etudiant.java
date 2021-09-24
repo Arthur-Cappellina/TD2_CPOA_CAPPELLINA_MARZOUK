@@ -53,12 +53,6 @@ public class Etudiant implements Comparable<Etudiant> {
         }
     }
 
-    /*public void ajouterListeNote(String m, List<Float> listeNote){
-        if (!notes.containsKey(m)) {
-            getNotes().put(m, (ArrayList<Float>) listeNote);
-        }
-    }*/
-
     public float calculMoyenneMatiere(String m){
         float sum = 0;
         if (notes.containsKey(m)) {
