@@ -2,7 +2,7 @@ package TD2_CPOA_CAPPELLINA_MARZOUK;
 
 import java.util.*;
 
-public class Etudiant extends Groupe{
+public class Etudiant extends Groupe {
 
     private Map<String, ArrayList<Float>> notes;
     private Identite id;
@@ -36,14 +36,20 @@ public class Etudiant extends Groupe{
     }
 
     public void ajouterNote(String m, Float note){
-        getNotes().get(m).add(note);
+        if(note > 20 || note < 0) return;
+        if(notes.containsKey(m)) notes.get(m).add(note);
+        else {
+            ArrayList<Float> noteTemp = new ArrayList<Float>();
+            noteTemp.add(note);
+            notes.put(m, noteTemp);
+        }
     }
 
     public void ajouterListeNote(String m, List<Float> listeNote){
         getNotes().put(m, (ArrayList<Float>) listeNote);
     }
 
-    public float calculMoyenne(String m){
+    public float calculMoyenneMatiere(String m){
         float sum = 0;
         for (int i = 0; i < getNotes().get(m).size(); i++) {
             sum += getNotes().get(m).size();
@@ -51,11 +57,11 @@ public class Etudiant extends Groupe{
         return sum/getNotes().get(m).size() ;
     }
 
-    public float calculMoyenneMatiere(){
+    public float calculMoyenneGeneral(){
         float sum = 0;
         Set<String> ks = this.getNotes().keySet();
         for (String m:ks){
-            sum += this.calculMoyenne(m);
+            sum += this.calculMoyenneMatiere(m);
         }
         return sum;
     }
