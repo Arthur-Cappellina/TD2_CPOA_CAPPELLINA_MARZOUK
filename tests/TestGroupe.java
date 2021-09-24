@@ -1,16 +1,14 @@
 package TD2_CPOA_CAPPELLINA_MARZOUK.tests;
 
-import TD2_CPOA_CAPPELLINA_MARZOUK.Formation;
-import TD2_CPOA_CAPPELLINA_MARZOUK.Identite;
+
+import TD2_CPOA_CAPPELLINA_MARZOUK.src.Etudiant;
+import TD2_CPOA_CAPPELLINA_MARZOUK.src.Formation;
+import TD2_CPOA_CAPPELLINA_MARZOUK.src.Groupe;
+import TD2_CPOA_CAPPELLINA_MARZOUK.src.Identite;
 import org.junit.Before;
 import org.junit.Test;
-import TD2_CPOA_CAPPELLINA_MARZOUK.Etudiant;
-import TD2_CPOA_CAPPELLINA_MARZOUK.Groupe;
-
-import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class TestGroupe {
 
@@ -30,4 +28,5 @@ public class TestGroupe {
         g.ajouterEtudiant(e);
         assertEquals("L etudiant a été ajouté", g.getEtudiants().get(0) == e);
     }
+
 }

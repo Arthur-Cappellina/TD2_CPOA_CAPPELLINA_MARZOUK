@@ -7,6 +7,10 @@ import java.util.List;
 
 public class Groupe {
 
+    public List<Etudiant> getEtudiants() {
+        return etudiants;
+    }
+
     private List<Etudiant> etudiants;
 
     private Formation formation;
