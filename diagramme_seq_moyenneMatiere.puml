@@ -1,0 +1,9 @@
+@startuml
+
+-> groupe ++: calculMoyenneGroupe("Sport")
+loop etudiants
+    groupe -> e++: calculMoyenneMatiere("Sport")
+    return moyenneMatiere
+end
+<-- groupe
+@enduml
