@@ -64,7 +64,6 @@ public class Etudiant {
         if (notes.containsKey(m)) {
             for (int i = 0; i < notes.get(m).size(); i++) {
                 sum += notes.get(m).get(i);
-                System.out.println(sum);
             }
             return sum / notes.get(m).size();
         } else {
@@ -74,10 +73,9 @@ public class Etudiant {
 
     public float calculMoyenneGeneral(){
         float sum = 0;
-        Set<String> ks = this.getNotes().keySet();
-        for (String m:ks){
-            sum += this.calculMoyenneMatiere(m);
+        for (String matiere : notes.keySet()){
+            sum += this.calculMoyenneMatiere(matiere);
         }
-        return sum;
+        return sum / notes.keySet().size();
     }
 }
