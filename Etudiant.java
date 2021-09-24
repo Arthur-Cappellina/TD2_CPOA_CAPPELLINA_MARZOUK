@@ -2,7 +2,7 @@ package TD2_CPOA_CAPPELLINA_MARZOUK;
 
 import java.util.*;
 
-public class Etudiant {
+public class Etudiant implements Comparable<Etudiant> {
 
     private Map<String, ArrayList<Float>> notes;
     private Identite id;
@@ -77,5 +77,10 @@ public class Etudiant {
             sum += this.calculMoyenneMatiere(matiere);
         }
         return sum / notes.keySet().size();
+    }
+
+    @Override
+    public int compareTo(Etudiant o) {
+        return o.getIdentite().getNom().compareTo(id.getNom());
     }
 }

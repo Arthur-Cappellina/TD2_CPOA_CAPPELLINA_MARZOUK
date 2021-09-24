@@ -1,6 +1,8 @@
 package TD2_CPOA_CAPPELLINA_MARZOUK;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Groupe {
@@ -46,10 +48,17 @@ public class Groupe {
         return somme/etudiants.size();
     }
 
+    public void triAlpha(){
+        Collections.sort(etudiants);
+    }
 
-
-
-
-
+    public void triParMerite(){
+        Collections.sort(etudiants, new Comparator<Etudiant>() {
+            @Override
+            public int compare(Etudiant o1, Etudiant o2) {
+                return o1.calculMoyenneGeneral() > o2.calculMoyenneGeneral() ? 1 : -1;
+            }
+        });
+    }
 
 }
