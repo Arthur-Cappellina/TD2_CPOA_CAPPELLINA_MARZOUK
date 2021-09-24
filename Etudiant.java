@@ -18,12 +18,20 @@ public class Etudiant extends Groupe {
         return this.notes;
     }
 
-    public Identite getId(){
+    public Identite getIdentite(){
         return this.id;
     }
 
-    public Formation getFo(){
+    public Formation getFormation(){
         return this.fo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Etudiant etudiant = (Etudiant) o;
+        return Objects.equals(notes, etudiant.notes) && Objects.equals(id, etudiant.id) && Objects.equals(fo, etudiant.fo);
     }
 
     @Override
@@ -39,15 +47,17 @@ public class Etudiant extends Groupe {
         if(note > 20 || note < 0) return;
         if(notes.containsKey(m)) notes.get(m).add(note);
         else {
-            ArrayList<Float> noteTemp = new ArrayList<Float>();
+            ArrayList<Float> noteTemp = new ArrayList<>();
             noteTemp.add(note);
             notes.put(m, noteTemp);
         }
     }
 
-    public void ajouterListeNote(String m, List<Float> listeNote){
-        getNotes().put(m, (ArrayList<Float>) listeNote);
-    }
+    /*public void ajouterListeNote(String m, List<Float> listeNote){
+        if (!notes.containsKey(m)) {
+            getNotes().put(m, (ArrayList<Float>) listeNote);
+        }
+    }*/
 
     public float calculMoyenneMatiere(String m){
         float sum = 0;
