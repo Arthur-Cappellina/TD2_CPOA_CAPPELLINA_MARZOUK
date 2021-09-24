@@ -61,10 +61,15 @@ public class Etudiant extends Groupe {
 
     public float calculMoyenneMatiere(String m){
         float sum = 0;
-        for (int i = 0; i < getNotes().get(m).size(); i++) {
-            sum += getNotes().get(m).size();
+        if (notes.containsKey(m)) {
+            for (int i = 0; i < notes.get(m).size(); i++) {
+                sum += notes.get(m).get(i);
+                System.out.println(sum);
+            }
+            return sum / notes.get(m).size();
+        } else {
+            return 0;
         }
-        return sum/getNotes().get(m).size() ;
     }
 
     public float calculMoyenneGeneral(){
