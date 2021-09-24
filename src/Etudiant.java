@@ -1,4 +1,4 @@
-package TD2_CPOA_CAPPELLINA_MARZOUK;
+package TD2_CPOA_CAPPELLINA_MARZOUK.src;
 
 import java.util.*;
 
@@ -52,12 +52,6 @@ public class Etudiant implements Comparable<Etudiant> {
             notes.put(m, noteTemp);
         }
     }
-
-    /*public void ajouterListeNote(String m, List<Float> listeNote){
-        if (!notes.containsKey(m)) {
-            getNotes().put(m, (ArrayList<Float>) listeNote);
-        }
-    }*/
 
     public float calculMoyenneMatiere(String m){
         float sum = 0;

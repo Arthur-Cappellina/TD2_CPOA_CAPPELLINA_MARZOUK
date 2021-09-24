@@ -1,10 +1,10 @@
 package TD2_CPOA_CAPPELLINA_MARZOUK.tests;
 
-import TD2_CPOA_CAPPELLINA_MARZOUK.Formation;
-import TD2_CPOA_CAPPELLINA_MARZOUK.Identite;
+import TD2_CPOA_CAPPELLINA_MARZOUK.src.Formation;
+import TD2_CPOA_CAPPELLINA_MARZOUK.src.Identite;
 import org.junit.Before;
 import org.junit.Test;
-import TD2_CPOA_CAPPELLINA_MARZOUK.Etudiant;
+import TD2_CPOA_CAPPELLINA_MARZOUK.src.Etudiant;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
