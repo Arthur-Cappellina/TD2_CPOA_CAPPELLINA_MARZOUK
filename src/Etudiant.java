@@ -1,4 +1,4 @@
-package TD2_CPOA_CAPPELLINA_MARZOUK;
+package TD2_CPOA_CAPPELLINA_MARZOUK.src;
 
 import java.util.*;
 
