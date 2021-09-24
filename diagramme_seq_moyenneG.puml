@@ -1,0 +1,14 @@
+@startuml
+
+-> e : calculMoyenneG()
+e -> f : getMatieres()
+return matieres
+loop [matieres]
+
+e -> e ++: calculMoyenneMatiere ()
+return moy
+e -> f ++ : getCoeff()
+return coeff
+end
+ <-- e
+@enduml

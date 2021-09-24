@@ -7,7 +7,6 @@ class Identite{
     - nip : String;
     - nom : String;
     - prenom : String;
-
     + getNip() : String;
     + getNom() : String;
     + getPrenom() : String;
@@ -15,20 +14,20 @@ class Identite{
 }
 
 class Etudiant{
-    - notes : Map<String, ArrayList<float>>;
+    - notes : Map<String, ArrayList<Float>>;
 
-    + ajouterNote(String m);
-    + calculMoyenne(String m) : int;
-    + calculMoyenneG() : int;
+    + ajouterNote(String m, float note);
+    + calculMoyenne(String m) : float;
+    + calculMoyenneG() : float;
 
 
 }
 
 class Formation{
     - identifiant : int
-    - coefficientsMatieres : Map<String, float>>
+    - coefficientsMatieres : Map<String, Float>>
 
-    + ajouterMatiere(String m);
+    + ajouterMatiere(String m, float coeff);
     + supprimerMatiere(String m);
 
 }
