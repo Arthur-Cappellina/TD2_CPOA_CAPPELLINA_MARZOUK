@@ -70,7 +70,7 @@ public class TestEtudiant {
         float moyenne = e.calculMoyenneMatiere("Sport");
 
         // Verification
-        assertEquals("La moyenne devrait valoir 10,5.", 10.5f, moyenne);
+        assertTrue("La moyenne devrait valoir 10,5.", 10.5f == moyenne);
     }
 
     @Test
@@ -85,6 +85,6 @@ public class TestEtudiant {
         float moyenne = e.calculMoyenneGeneral();
 
         // Verification
-        assertEquals("La moyenne devrait valoir 10,5.", 11f, moyenne);
+        assertTrue("La moyenne devrait valoir 11.", 11f == moyenne);
     }
 }
