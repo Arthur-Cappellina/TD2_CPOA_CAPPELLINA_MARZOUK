@@ -2,6 +2,7 @@ package TD2_CPOA_CAPPELLINA_MARZOUK;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class Formation {
 
@@ -29,5 +30,18 @@ public class Formation {
 
     public float getCoeff(String matiere){
         return coefficientsMatieres.containsKey(matiere) ? coefficientsMatieres.get(matiere) : -1;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Formation formation = (Formation) o;
+        return identifiant == formation.identifiant && Objects.equals(coefficientsMatieres, formation.coefficientsMatieres);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(identifiant, coefficientsMatieres);
     }
 }
