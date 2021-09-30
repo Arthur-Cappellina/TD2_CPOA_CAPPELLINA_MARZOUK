@@ -68,7 +68,7 @@ public class Etudiant implements Comparable<Etudiant> {
     public float calculMoyenneGeneral(){
         float sum = 0;
         for (String matiere : notes.keySet()){
-            sum += this.calculMoyenneMatiere(matiere);
+            sum += this.calculMoyenneMatiere(matiere) * this.getFormation().getCoeff(matiere);
         }
         return sum / notes.keySet().size();
     }
