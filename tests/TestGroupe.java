@@ -55,21 +55,20 @@ public class TestGroupe {
         groupeF.ajouterEtudiant(jean);
         groupeF.ajouterEtudiant(alphonse);
         jean.ajouterNote("Sport", 10f);
-        jean.ajouterNote("Sport", 8f);
-        jean.ajouterNote("Sport", 18f);
+        jean.ajouterNote("Sport", 10f);
+        alphonse.ajouterNote("Sport", 14f);
         alphonse.ajouterNote("Sport", 6f);
         float moyenne = groupeF.calculerMoyenneMatiereGroupe("Sport");
 
-        System.out.println(moyenne);
         // Verification
-        assertTrue("La reponse devrait etre 10.5.", 10.5f == moyenne);
+        assertTrue("La reponse devrait etre 10.5.", 10f == moyenne);
     }
 
     @Test
     public void test_triAlpha(){
         // Execution
-        groupeF.ajouterEtudiant(jean);
         groupeF.ajouterEtudiant(alphonse);
+        groupeF.ajouterEtudiant(jean);
         groupeF.triAlpha();
 
         // Verification
@@ -79,8 +78,8 @@ public class TestGroupe {
     @Test
     public void test_triParMerite(){
         // Preparation
-        groupeF.ajouterEtudiant(alphonse);
         groupeF.ajouterEtudiant(jean);
+        groupeF.ajouterEtudiant(alphonse);
 
         // Execution
         jean.ajouterNote("Sport", 10f);
@@ -91,3 +90,4 @@ public class TestGroupe {
         assertTrue("L'étudiant numéro 2 doit etre le 1er", groupeF.getEtudiantAtIndex(0) == jean);
     }
 }
+

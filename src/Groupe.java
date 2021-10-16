@@ -56,7 +56,6 @@ public class Groupe {
         float somme = 0;
         for(Etudiant e : etudiants){
             somme += e.calculMoyenneMatiere(matiere);
-            System.out.println("Moyenne : " + e.calculMoyenneMatiere(matiere));
         }
         return somme/etudiants.size();
     }
@@ -81,6 +80,7 @@ public class Groupe {
      */
     public void triAlpha(){
         Collections.sort(etudiants);
+        Collections.reverse(etudiants);
     }
 
     /**
@@ -90,8 +90,8 @@ public class Groupe {
         Collections.sort(etudiants, new Comparator<Etudiant>() {
             @Override
             public int compare(Etudiant o1, Etudiant o2) {
-                if(o1.calculMoyenneGeneral() > o2.calculMoyenneGeneral()) return 1;
-                else if(o1.calculMoyenneGeneral() < o2.calculMoyenneGeneral()) return  -1;
+                if(o1.calculMoyenneGeneral() > o2.calculMoyenneGeneral()) return -1;
+                else if(o1.calculMoyenneGeneral() < o2.calculMoyenneGeneral()) return  1;
                 return 0;
             }
         });
