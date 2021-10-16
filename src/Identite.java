@@ -2,17 +2,27 @@ package TD2_CPOA_CAPPELLINA_MARZOUK.src;
 
 import java.util.*;
 
+/**
+ * Classe permettant de definir l'identite d'un etudiant
+ */
 public class Identite {
 
     private String nip;
     private String nom;
     private String prenom;
 
+    /**
+     * Constructeur de la classe
+     */
     public Identite(String ni, String no, String pr){
         this.nip = ni;
         this.nom = no;
         this.prenom = pr;
     }
+
+    /**
+     * Les getters
+     */
 
     public String getNip(){
         return this.nip;
