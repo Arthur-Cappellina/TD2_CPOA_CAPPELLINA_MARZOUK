@@ -12,10 +12,15 @@ import static org.junit.Assert.assertTrue;
 public class TestEtudiant {
 
     Etudiant e;
+    Formation f;
 
     @Before
     public void before(){
-        e = new Etudiant(new Identite("123", "Martin", "Jean"), new Formation());
+        f = new Formation();
+        f.ajouterMatiere("Sport", 2);
+        f.ajouterMatiere("Francais", 3);
+        f.ajouterMatiere("Maths", 1);
+        e = new Etudiant(new Identite("123", "Martin", "Jean"), f);
     }
 
     @Test
@@ -77,14 +82,13 @@ public class TestEtudiant {
     public void test_calculerMoyenneGenerale(){
         // Préparation des données
         e.ajouterNote("Sport", 20f);
-        e.ajouterNote("Francais", 2f);
-        e.ajouterNote("Maths", 6f);
-        e.ajouterNote("Physique", 16f);
+        e.ajouterNote("Francais", 4f);
+        e.ajouterNote("Maths", 8f);
 
         // Execution
         float moyenne = e.calculMoyenneGeneral();
 
-        // Verification
-        assertTrue("La moyenne devrait valoir 11.", 11f == moyenne);
+        // Verification, devrait valoir (20 * 2 + 4 * 3 + 8 * 1)  / 6 =10
+        assertTrue("La moyenne devrait valoir 10.", 10f == moyenne);
     }
 }

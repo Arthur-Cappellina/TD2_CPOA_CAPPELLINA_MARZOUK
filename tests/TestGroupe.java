@@ -12,69 +12,82 @@ import static org.junit.Assert.*;
 
 public class TestGroupe {
 
-    Groupe g;
-    Formation f;
+    Formation f = new Formation();
+
+    Groupe groupeF = new Groupe(f), groupe = new Groupe(new Formation());
+    Etudiant jean = new Etudiant(new Identite("13", "Jean", "Martin"), f);
+    Etudiant alphonse = new Etudiant(new Identite("14", "Bernard", "Alphonse"), f);
 
     @Before
-    public void before(){
-        f = new Formation();
-        g = new Groupe(f);
+    public void Before() {
+        f.ajouterMatiere("Sport", 2f);
     }
 
     @Test
-    public void test_ajoutEtudiant(){
-        String id = "13";
-        String nom = "Kaaris";
-        String prenom = "Booba";
-        Etudiant e = new Etudiant(new Identite(id, nom, prenom), f);
-        g.ajouterEtudiant(e);
-        assertTrue("L etudiant a été ajouté", g.getEtudiants().get(0) == e);
+    public void test_ajoutEtudiant_normal(){
+        // Execution
+        groupeF.ajouterEtudiant(jean);
+        assertTrue("L etudiant a été ajouté", groupeF.getEtudiantAtIndex(0) == jean);
     }
 
     @Test
-    public void test_supprimerEtudiant(){
-        String id = "13";
-        String nom = "Kaaris";
-        String prenom = "Booba";
-        Etudiant e = new Etudiant(new Identite(id, nom, prenom), f);
-        g.ajouterEtudiant(e);
-        g.supprimerEtudiant(e);
-        assertTrue("L etudiant a été supprimé", g.getEtudiants().size() == 0);
+    public void test_ajoutEtudiant_differentesFormations(){
+        // Execution
+        groupe.ajouterEtudiant(jean);
+
+        // Verification
+        assertTrue("L etudiant a été ajouté", groupe.getNombreEtudiants() == 0);
+    }
+
+    @Test
+    public void test_supprimerEtudiant_normal(){
+        // Execution
+        groupeF.ajouterEtudiant(jean);
+        groupeF.supprimerEtudiant(jean);
+
+        // Verification
+        assertTrue("L etudiant a été supprimé", groupeF.getNombreEtudiants() == 0);
     }
 
     @Test
     public void test_calculerMoyenneMatiereGroupe(){
-        Etudiant e = new Etudiant(new Identite("13", "Kaaris", "Booba"), f);
-        g.ajouterEtudiant(e);
-        e.ajouterNote("Sport", 10f);
-        e.ajouterNote("Sport", 8f);
-        e.ajouterNote("Sport", 18f);
-        e.ajouterNote("Sport", 6f);
-        float moyenne = g.calculerMoyenneMatiereGroupe("Sport");
+        // Execution
+        groupeF.ajouterEtudiant(jean);
+        groupeF.ajouterEtudiant(alphonse);
+        jean.ajouterNote("Sport", 10f);
+        jean.ajouterNote("Sport", 8f);
+        jean.ajouterNote("Sport", 18f);
+        alphonse.ajouterNote("Sport", 6f);
+        float moyenne = groupeF.calculerMoyenneMatiereGroupe("Sport");
+
+        System.out.println(moyenne);
+        // Verification
         assertTrue("La reponse devrait etre 10.5.", 10.5f == moyenne);
     }
 
     @Test
     public void test_triAlpha(){
-        Etudiant e1 = new Etudiant(new Identite("2", "Aaron", "Booba"), f);
-        Etudiant e2 = new Etudiant(new Identite("3", "Carlos", "Dori"), f);
-        g.ajouterEtudiant(e1);
-        g.ajouterEtudiant(e2);
-        g.triAlpha();
-        assertTrue("L'étudiant numéro 2 doit etre le 1er", g.getEtudiants().get(0) == e2);
+        // Execution
+        groupeF.ajouterEtudiant(jean);
+        groupeF.ajouterEtudiant(alphonse);
+        groupeF.triAlpha();
+
+        // Verification
+        assertTrue("L'étudiant numéro 2 doit etre le 1er", groupeF.getEtudiantAtIndex(0) == alphonse);
     }
 
     @Test
     public void test_triParMerite(){
-        Etudiant e1 = new Etudiant(new Identite("2", "Aaron", "Booba"), f);
-        Etudiant e2 = new Etudiant(new Identite("3", "Carlos", "Dori"), f);
-        g.ajouterEtudiant(e1);
-        g.ajouterEtudiant(e2);
-        e1.ajouterNote("Sport", 10f);
-        e1.ajouterNote("Sport", 18f);
-        e2.ajouterNote("Sport", 8f);
-        e2.ajouterNote("Sport", 6f);
-        g.triParMerite();
-        assertTrue("L'étudiant numéro 2 doit etre le 1er", g.getEtudiants().get(0) == e2);
+        // Preparation
+        groupeF.ajouterEtudiant(alphonse);
+        groupeF.ajouterEtudiant(jean);
+
+        // Execution
+        jean.ajouterNote("Sport", 10f);
+        jean.ajouterNote("Sport", 18f);
+        alphonse.ajouterNote("Sport", 8f);
+        alphonse.ajouterNote("Sport", 6f);
+        groupeF.triParMerite();
+        assertTrue("L'étudiant numéro 2 doit etre le 1er", groupeF.getEtudiantAtIndex(0) == jean);
     }
 }
